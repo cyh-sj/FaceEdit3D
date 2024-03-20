@@ -107,7 +107,7 @@
                 </a>
               </span> -->
               <!-- Video Link. -->
-              <span class="link-block">
+              <!-- <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=2XvqhwWWBsI"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -115,7 +115,7 @@
                   </span>
                   <span>Video</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Code Link.
               <span class="link-block">
                 <a href="https://github.com/google/nerfies"
@@ -149,9 +149,9 @@
     <div class="hero-body">
       <img class="img-responsive" src="./static/images/teaser.png" alt="Teaser">
       <h2 class="subtitle has-text-justified">
-        <span class="ID2Albedo">We introduce ID2Albedo, a high-quality, unbiased albedo reconstruction method. ID2Albedo maps the facial identity features to
-          the latent space of the albedo generator and uses novel visual-textual cues to constrain albedo attributes. Our approach can alleviate the
-          illumination/albedo ambiguity and generate high-fidelity albedo maps for realistic rendering. Images are all from FFHQ.
+        <span class="ID2Albedo">An example of our warping-guided 3D-aware face editing method. 
+          Our method supports users to edit 3D faces in an intuitive way that drags points from multiple perspectives. 
+          Moreover, our method can achieve disentangled editing for shape, expression, and view, while maintaining 3D consistency.
       </h2>
     </div>
   </div>
@@ -165,32 +165,25 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Recent 3D face reconstruction methods have made significant advances in geometry prediction, 
-            yet further cosmetic improvements are limited by lagged albedo because inferring albedo from appearance 
-            is an ill-posed problem.Although some existing methods consider prior knowledge from illumination to 
-            improve albedo estimation, they still produce a light-skin bias due to racially biased albedo models
-             and limited light constraints.
+            3D facial editing, a longstanding task in computer vision with broad applications, is expected to fast and intuitively manipulate any face from arbitrary viewpoints following the user's will.
+Existing works have limitations in terms of intuitiveness, generalization, and efficiency. 
+
           </p>
           <p>
-            In this paper, we reconsider the relationship between albedo and face attributes and propose an ID2Albedo to directly estimate albedo without constraining illumination.
-            Our key insight is that intrinsic semantic attributes such as race, skin color, and age can be used to constrain the albedo map.
-            We first introduce visual-textual cues and design a semantic loss to supervise facial albedo estimation.
-            Specifically, we pre-define text labels such as race, skin color, age, and wrinkles. Then, we employ the text-image model (CLIP) to compute the similarity between the text and the input image, 
-            and assign a pseudo-label to each facial image. We constrain generated albedos in the training phase to have the same attributes as the inputs.
-            In addition, we train a high-quality, unbiased facial albedo generator and utilize the semantic loss to learn the mapping from illumination-robust identity features to the albedo latent codes.
-            Finally, our ID2Albedo is trained in a self-supervised way and outperforms state-of-the-art albedo estimation methods in terms of accuracy and fidelity.
-            It is worth mentioning that our approach has excellent generalizability and fairness, especially on in-the-wild data.
+            To overcome these challenges, we propose FaceEdit3D, which allows users to directly manipulate 3D points to edit a 3D face, achieving natural and rapid face editing.
+After one or several points are manipulated by users, we propose the tri-plane warping to directly deform the view-independent 3D representation.
+To address the problem of distortion caused by tri-plane warping, we train a warp-aware encoder to project the warped face onto a standardized latent space. 
+In this space, we further propose directional latent editing to mitigate the identity bias caused by the encoder and realize the disentangled editing of various attributes.
+Extensive experiments show that our method achieves superior results with rich facial details and nice identity preservation. 
+Our approach also supports general applications like multi-attribute continuous editing and cat/car editing.
           </p>
-          <p><em>
-            Please note that due to the timing of the publication, we clarified the paper used the BFM version of the TRUST model for visual comparison.
-          </em></p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
 
     <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
@@ -198,7 +191,7 @@
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Paper video. -->
 
 
@@ -208,9 +201,12 @@
         <h2 class="title is-3">Pipeline</h2>
         <img class="img-responsive" src="./static/images/pipeline.png" alt="Pipeline">
         <div class="content has-text-justified">
-        <span class="Pipeline">We introduce ID2Albedo, a high-quality, unbiased albedo reconstruction method. ID2Albedo maps the facial identity features to
-          the latent space of the albedo generator and uses novel visual-textual cues to constrain albedo attributes. Our approach can alleviate the
-          illuminationalbedo ambiguity and generate high-fidelity albedo maps for realistic rendering. Images are all from FFHQ.
+        <span class="Pipeline">we propose FaceEdit3D, an intuitive method to edit the 3D facial shape and expression from any perspective. 
+          Our approach involves a tri-plane warping to ensure the inherent 3D-consistent editing. 
+          To mitigate facial distortions led by the warping, we train a warp-aware encoder to project the warped face into standardized distribution and further explore the hierarchical mechanism in latent space to achieve disentangled editing. 
+          Extensive experiments demonstrate the effectiveness and efficiency of our method.
+          The additional applications also show the generalization and potential of our method across different applications. 
+          To sum up, our method provides a brand new way to manipulate the 3D representation, opening up new avenues for rapid and convenient real-image editing.
         </div>
       </div>
     </div>
@@ -221,13 +217,11 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@InProceedings{Ren_2023_CVPR,
-  author    = {Ren, Xingyu and Deng, Jiankang and Ma, Chao and Yan, Yichao and Yang, Xiaokang},
-  title     = {Improving Fairness in Facial Albedo Estimation via Visual-Textual Cues},
+    <pre><code>@InProceedings{Cheng_2024_CVPR,
+  author    = {Yuhao Cheng, Zhuo Chen, Xingyu Ren, Wenhan Zhu, Zhengqin Xu, Di Xu, Changpeng Yang, Yichao Yan},
+  title     = {3D-Aware Face Editing via Warping-Guided Latent Direction Learning},
   booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  month     = {June},
-  year      = {2023},
-  pages     = {4511-4520}
+  year      = {2024},
 }</code></pre>
   </div>
 </section>
