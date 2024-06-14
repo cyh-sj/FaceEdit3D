@@ -3,6 +3,8 @@
 
 Yuhao Cheng, Zhuo Chen, Xingyu Ren, Wenhan Zhu, Zhengqin Xu, Di Xu, Changpeng Yang, Yichao Yan
 
+Codes will be released before July 1st.
+
 <a href='https://cyh-sj.github.io/FaceEdit3D/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
 
 ![Teaser Image](Assets/teaser.png "Teaser")
