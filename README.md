@@ -3,12 +3,8 @@
 
 Yuhao Cheng, Zhuo Chen, Xingyu Ren, Wenhan Zhu, Zhengqin Xu, Di Xu, Changpeng Yang, Yichao Yan
 
-<<<<<<< HEAD
 CVPR 2024
 
-=======
-## Codes will be released before July 1st.
->>>>>>> cd3bb4624c9f7d7b2a2b165cdecdf5a8ad011f7a
 
 <a href='https://cyh-sj.github.io/FaceEdit3D/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
 
