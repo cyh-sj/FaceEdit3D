@@ -5,8 +5,7 @@ Yuhao Cheng, Zhuo Chen, Xingyu Ren, Wenhan Zhu, Zhengqin Xu, Di Xu, Changpeng Ya
 
 CVPR 2024
 
-
-<a href='https://cyh-sj.github.io/FaceEdit3D/'><img src='https://img.shields.io/badge/Project-Page-Green'></a>
+[Paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Cheng_3D-Aware_Face_Editing_via_Warping-Guided_Latent_Direction_Learning_CVPR_2024_paper.pdf) | [Project page](https://cyh-sj.github.io/FaceEdit3D/)
 
 ![Teaser Image](Assets/teaser.png "Teaser")
 
