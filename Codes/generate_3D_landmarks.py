@@ -265,13 +265,18 @@ if __name__ == "__main__":
     out_sigma, out_coo = gen_3D_coors(G, triplanes, camera_lookat_point, 2.7, device)
     ldm_3d = gen_3D_ldms(out_sigma, out_coo, ldm_2d, device)
 
+    target_ldm_3d = ldm_3d.clone()
+    # User manually modify the 3D landmarks
+    target_ldm_3d[9, :] += torch.tensor([-0.05, 0, 0], device=device)
+    target_ldm_3d[10, :] += torch.tensor([0.05, 0, 0], device=device)
+
     with open('source_3d_ldms.txt', 'w') as f:
         for coo in ldm_3d:
             f.write("{:.4f}".format(coo[1]) + ' ' + "{:.4f}".format(coo[0]) + ' '  + "{:.4f}".format(coo[2]) + '\n')
 
     with open('target_3d_ldms.txt', 'w') as f:
-        for coo in ldm_3d:
-            f.write("{:.4f}".format(coo[1]) + ' ' + "{:.4f}".format(coo[0]) + ' '  + "{:.4f}".format(coo[2]) + '\n')
+        for coo in target_ldm_3d:
+            f.write("{:.4f}".format(coo[1]) + ' ' + "{:.4f}".format(coo[0]) + ' '  + "{:.4f}".format(coo[2]) + '\n')        
 
     img = (image.permute(0, 2, 3, 1) * 127.5 + 128).clamp(0, 255).to(torch.uint8)
     img = img[0].cpu().numpy()

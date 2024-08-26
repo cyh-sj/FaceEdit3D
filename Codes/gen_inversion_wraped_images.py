@@ -195,8 +195,12 @@ def gen_interp_video(G, outdir: str, seeds, shuffle_seed=None, w_frames=60*4, ki
         
         if edit_exp:
             w_pivot[:, 6:7, :] += edit_d[:, 6:7, :]
+        
+        if not edit_shape and not edit_exp:
+            w_pivot += edit_d
 
         triplanes_1 = G.backbone.synthesis(ws=w_pivot)
+        # triplanes_1 = G.backbone.synthesis(ws=w_1)
         triplanes_1 = triplanes_1.view(len(triplanes_1), 3, 32, triplanes_1.shape[-2], triplanes_1.shape[-1])
         planes = triplanes_1
 
@@ -306,7 +310,7 @@ def parse_tuple(s: Union[str, Tuple[int,int]]) -> Tuple[int, int]:
 
 @click.command()
 @click.option('--network', 'network_pkl', help='Network pickle filename', required=True)
-@click.option('--seeds', type=parse_range, help='List of random seeds', required=False, default=0)
+@click.option('--seeds', type=parse_range, help='List of random seeds', required=False, default='0')
 @click.option('--shuffle-seed', type=int, help='Random seed to use for shuffling seed order', default=None)
 @click.option('--grid', type=parse_tuple, help='Grid width/height, e.g. \'4x3\' (default: 1x1)', default=(1,1))
 @click.option('--num-keyframes', type=int, help='Number of seeds to interpolate through.  If not specified, determine based on the length of the seeds array given by --seeds.', default=None)

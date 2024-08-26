@@ -18,6 +18,12 @@ CVPR 2024
 
 + Download pretrained warp-aware encoder models from <a href='https://drive.google.com/file/d/1L576COZyXX0Lwz8U71NbJ2Vtp7SZBZY0/view?usp=sharing'>https://drive.google.com/file/d/1L576COZyXX0Lwz8U71NbJ2Vtp7SZBZY0/view?usp=sharing</a>, and put it in _Codes_.
 
+## Quick Start
++ We provide a launch script for editing facial images. You can directly run with:
+```.bash
+bash launch.sh
+```
+
 ## Editing
 + For one random seed, e.g., 0, you can obtain a facial image with its 3D landmarks.
 ```.bash
